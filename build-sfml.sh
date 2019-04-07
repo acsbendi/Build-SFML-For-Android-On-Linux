@@ -41,6 +41,7 @@ readonly CURRENT_PATH=$(dirname "$(readlink -f "$0")")
 for abi in ${abis[@]} ; do
     cat ${CURRENT_PATH}/rebuild.sh >> ${TEMP_FILE_PATH}
     cat ${TEMP_FILE_PATH} > ${INSTALL_PATH}/SFML/build/${abi}/rebuild.sh
+    chmod +x ${INSTALL_PATH}/SFML/build/${abi}/rebuild.sh
     rm -rf ${TEMP_FILE_PATH}
 done
 
