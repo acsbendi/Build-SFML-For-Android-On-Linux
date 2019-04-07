@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-requirements=(wget unzip cmake git)
+requirements=(wget unzip cmake git make)
 
 for requirement in ${requirements[@]} ; do
     if ! type "${requirement}" > /dev/null 2>&1; then
