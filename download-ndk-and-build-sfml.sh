@@ -21,4 +21,4 @@ echo "Unzipping Android NDK..."
 unzip -q -d ${NDK_DOWNLOAD_PATH} ${NDK_DOWNLOAD_PATH}/${ANDROID_ZIP_NAME}
 rm -rf ${NDK_DOWNLOAD_PATH}/${ANDROID_ZIP_NAME}
 
-./build-sfml.bat ${NDK_DOWNLOAD_PATH}/android-ndk-r${LATEST_NDK_VERSION}
+./build-sfml.sh ${NDK_DOWNLOAD_PATH}/android-ndk-r${LATEST_NDK_VERSION}
