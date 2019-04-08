@@ -25,19 +25,19 @@ readonly CMAKE_MAJOR=$(echo ${CMAKE_VERSION} | sed -r 's/^([0-9]+).*$/\1/')
 readonly CMAKE_MINOR=$(echo ${CMAKE_VERSION} | sed -r 's/^[0-9]+\.([0-9]+).*$/\1/')
 readonly CMAKE_PATCH=$(echo ${CMAKE_VERSION} | sed -r 's/^[0-9]+\.[0-9]+\.([0-9]+).*$/\1/')
 
-if [[ ${CMAKE_MAJOR} < ${REQUIRED_CMAKE_MAJOR} ]] ; then
+if (( ${CMAKE_MAJOR} < ${REQUIRED_CMAKE_MAJOR} )) ; then
     bad_cmake_version
-elif [[ ${CMAKE_MAJOR} > ${REQUIRED_CMAKE_MAJOR} ]] ; then
+elif (( ${CMAKE_MAJOR} > ${REQUIRED_CMAKE_MAJOR} )) ; then
     exit 0
 fi
 
-if [[ ${CMAKE_MINOR} < ${REQUIRED_CMAKE_MINOR} ]] ; then
+if (( ${CMAKE_MINOR} < ${REQUIRED_CMAKE_MINOR} )) ; then
     bad_cmake_version
-elif [[ ${CMAKE_MINOR} > ${REQUIRED_CMAKE_MINOR} ]] ; then
+elif (( ${CMAKE_MINOR} > ${REQUIRED_CMAKE_MINOR} )) ; then
     exit 0
 fi
 
-if [[ ${CMAKE_PATCH} < ${REQUIRED_CMAKE_PATCH} ]] ; then
+if (( ${CMAKE_PATCH} < ${REQUIRED_CMAKE_PATCH} )) ; then
     bad_cmake_version
 else
     exit 0
