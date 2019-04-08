@@ -10,7 +10,20 @@ if [[ $? != 0 ]]; then
     exit 1
 fi
 
-readonly NDK_PATH=$1
+ndk_input_path=$1
+if [[ ${1: -1} != / ]]; then
+    ndk_input_path=${ndk_input_path}/
+fi
+
+readonly CURRENT_PATH=$(dirname "$(readlink -f "$0")")
+
+if [[ ${ndk_input_path:0:1} != / ]]; then
+    readonly NDK_PATH=${CURRENT_PATH}/${ndk_input_path}
+else
+    readonly NDK_PATH=${ndk_input_path}
+fi
+
+echo "${NDK_PATH}"
 
 if [[ $# < 2 ]]; then
     readonly INSTALL_PATH=~/SFML/
@@ -37,7 +50,6 @@ done
 
 popd
 readonly TEMP_FILE_PATH=${INSTALL_PATH}/SFML/build/${abi}/rebuild-temp
-readonly CURRENT_PATH=$(dirname "$(readlink -f "$0")")
 for abi in ${abis[@]} ; do
     cat ${CURRENT_PATH}/rebuild.sh >> ${TEMP_FILE_PATH}
     cat ${TEMP_FILE_PATH} > ${INSTALL_PATH}/SFML/build/${abi}/rebuild.sh
