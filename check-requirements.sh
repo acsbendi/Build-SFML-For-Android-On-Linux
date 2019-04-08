@@ -12,7 +12,7 @@ done
 bad_cmake_version(){
     echo "Minimum required CMake version is ${REQUIRED_CMAKE_MAJOR}.${REQUIRED_CMAKE_MINOR}.${REQUIRED_CMAKE_PATCH}"
     echo "You only have ${CMAKE_VERSION}"
-    echo "Please update your CMake"
+    echo "Please upgrade your CMake"
     exit 1
 }
 
