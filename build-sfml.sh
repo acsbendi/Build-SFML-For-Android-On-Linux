@@ -23,8 +23,6 @@ else
     readonly NDK_PATH=${ndk_input_path}
 fi
 
-echo "${NDK_PATH}"
-
 if [[ $# < 2 ]]; then
     readonly INSTALL_PATH=~/SFML/
 else
@@ -49,12 +47,14 @@ for abi in ${abis[@]} ; do
 done
 
 popd
-readonly TEMP_FILE_PATH=${INSTALL_PATH}/SFML/build/${abi}/rebuild-temp
 for abi in ${abis[@]} ; do
-    cat ${CURRENT_PATH}/rebuild.sh >> ${TEMP_FILE_PATH}
-    cat ${TEMP_FILE_PATH} > ${INSTALL_PATH}/SFML/build/${abi}/rebuild.sh
+    temp_file_path=${INSTALL_PATH}/SFML/build/${abi}/rebuild-temp
+
+    cat ${CURRENT_PATH}/rebuild.sh >> ${temp_file_path}
+    cat ${temp_file_path} > ${INSTALL_PATH}/SFML/build/${abi}/rebuild.sh
     chmod +x ${INSTALL_PATH}/SFML/build/${abi}/rebuild.sh
-    rm -rf ${TEMP_FILE_PATH}
+
+    rm -rf ${temp_file_path}
 done
 
 cp ${CURRENT_PATH}/rebuild-all.sh ${INSTALL_PATH}/SFML/build/
