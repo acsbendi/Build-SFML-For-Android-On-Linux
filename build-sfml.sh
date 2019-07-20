@@ -32,7 +32,7 @@ fi
 echo "Downloading SFML to ${INSTALL_PATH}"
 mkdir -p ${INSTALL_PATH}
 pushd ${INSTALL_PATH}
-git clone --single-branch -b build-with-latest-ndk-fix https://github.com/acsbendi/SFML
+git clone https://github.com/acsbendi/SFML
 
 cd SFML
 mkdir build
