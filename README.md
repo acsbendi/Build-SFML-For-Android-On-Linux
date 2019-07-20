@@ -10,6 +10,10 @@ Successfully building SFML requires that you have
 * `unzip`
 * `wget`
 
+Additional requirements to enable parallel builds (compile SFML for every ABI at the same time):
+
+* `gnome-terminal`
+
 # How to use it
 
 ### ● If you have NDK installed:
