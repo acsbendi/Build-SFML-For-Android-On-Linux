@@ -5,7 +5,7 @@ if [[ $? != 0 ]]; then
         exit 1
 fi
 
-readonly LATEST_NDK_VERSION=19c
+readonly LATEST_NDK_VERSION=20
 readonly ANDROID_ZIP_NAME=android-ndk-r${LATEST_NDK_VERSION}-linux-x86_64.zip
 
 if [[ $# > 0 ]]; then
