@@ -37,3 +37,28 @@ Rebuilds SFML for all ABIs.
 
 #### ● `rebuild.sh` (in each ABI's directory): 
 Rebuilds SFML for the ABI corrisponding to script's directory.
+
+## 64-bit ABIs
+The 64-bit ABIs (`x86_64` and `arm64-v8a`) require several libraries before they can be compiled. They are skipped by default unless you set the `COMPILE_64_BIT_ABIS` environment variable. You will also have to provide paths to the required libraries for either ABI.
+
+#### ● `x86_64`:
+```bash
+export X86_64_OPENAL=/path/to/libopenal.so
+export X86_64_FLAC=/path/to/libFLAC.so
+export X86_64_FREETYPE=/path/to/libfreetype.so
+export X86_64_VORBIS=/path/to/libvorbis.so
+export X86_64_VORBISENC=/path/to/libvorbisenc.so
+export X86_64_VORBISFILE=/path/to/libvorbisfile.so
+export X86_64_OGG=/path/to/libogg.so
+```
+
+#### ● `arm64-v8a`:
+```bash
+export ARM64_V8A_OPENAL=/path/to/libopenal.so
+export ARM64_V8A_FLAC=/path/to/libFLAC.so
+export ARM64_V8A_FREETYPE=/path/to/libfreetype.so
+export ARM64_V8A_VORBIS=/path/to/libvorbis.so
+export ARM64_V8A_VORBISENC=/path/to/libvorbisenc.so
+export ARM64_V8A_VORBISFILE=/path/to/libvorbisfile.so
+export ARM64_V8A_OGG=/path/to/libogg.so
+```
