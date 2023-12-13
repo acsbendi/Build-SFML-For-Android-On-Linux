@@ -32,14 +32,13 @@ fi
 echo "Downloading SFML to ${INSTALL_PATH}"
 mkdir -p ${INSTALL_PATH}
 pushd ${INSTALL_PATH}
-git clone https://github.com/acsbendi/SFML
+git clone https://github.com/SFML/SFML
 
 cd SFML
 mkdir build
 cd build
 
-# 64 bit abis (arm64-v8a and x86_64) currently fail due to not finding OpenAL, so they are not included
-abis=(x86 armeabi-v7a)
+abis=(x86 armeabi-v7a arm64-v8a x86_64)
 for abi in ${abis[@]} ; do
     mkdir ${abi}
     echo "#!/usr/bin/env bash" > ${abi}/rebuild-temp
